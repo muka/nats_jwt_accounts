@@ -28,4 +28,3 @@ Using the `user1` credential, the client should connect and subscribe to `user.u
 - https://docs.nats.io/nats-tools/nas/notifications
 - https://docs.nats.io/nats-tools/nsc
 - https://docs.nats.io/nats-server/configuration/securing_nats/jwt/resolver
-- 
