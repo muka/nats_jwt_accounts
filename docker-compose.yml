@@ -1,0 +1,23 @@
+version: "3.5"
+services:
+  nats:
+    command: -c /config/nats-server.conf
+    image: nats
+    networks: ["nats"]
+    volumes: 
+      - ./config:/config
+      - ./data/nsc:/nsc
+    depends_on: 
+      - nas
+    restart: unless-stopped
+  nas:
+    command: -nats nats://nats:4222 -hp 0.0.0.0:9090 -operator /nsc/accounts/nats/operator1/operator1.jwt -creds /nsc/nkeys/creds/operator1/users/user1.creds
+    image: synadia/nats-account-server:1.0.0
+    networks: ["nats"]
+    restart: unless-stopped
+    volumes: 
+      - ./data/nsc:/nsc
+
+networks:
+  nats:
+    name: nats
