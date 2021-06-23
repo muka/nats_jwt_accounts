@@ -2,7 +2,7 @@
 
 NATS.io example setup to use JWT and NAS for authentication/authorization
 
-# Requirements
+## Requirements
 
 Tested on linux, ensure you have a recent version of 
 
@@ -10,7 +10,7 @@ Tested on linux, ensure you have a recent version of
 - docker-compose
 - make
 
-# Setup
+## Setup
 
 1. Run `make setup` to initialize the accounts, see `setup.sh` for details
 2. Run `make box` and insert the command `nsc list accounts`. 
@@ -18,11 +18,14 @@ Tested on linux, ensure you have a recent version of
 4. Reload NATS to pickup the configuration `docker-compose restart nats`
 5. Update the keys/JWT parameters with `make push`
 
-# Testing
+## Testing
 
 Using the `user1` credential, the client should connect and subscribe to `user.user1.>` but not others. Also support protocols such as websocket, nats, mqtt. The limit of concurrent connections is 25.
 
-# References
+## References
 
 - https://docs.nats.io/nats-server/configuration/sys_accounts/sys_accounts
 - https://docs.nats.io/nats-tools/nas/notifications
+- https://docs.nats.io/nats-tools/nsc
+- https://docs.nats.io/nats-server/configuration/securing_nats/jwt/resolver
+- 
